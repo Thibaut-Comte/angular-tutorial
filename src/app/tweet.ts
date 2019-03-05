@@ -1,8 +1,10 @@
 export interface Tweet {
 
-    id: number
-    created_at: string;
-    text: string
-    user: string
+    id: number,
+    created_at: string,
+    text: string,
+    user: string,
+    likes: string[],
+    liked: boolean
 
 }

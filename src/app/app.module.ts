@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TimelineComponent } from './timeline/timeline.component';
 
 import {TimeAgoPipe} from 'time-ago-pipe';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {TimeAgoPipe} from 'time-ago-pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

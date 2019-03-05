@@ -1,4 +1,11 @@
 <div class="row">
+
+
+    <h2 *ngIf="user === ''">Bonjour veuillez saisir votre nom</h2>
+    <h2 *ngIf="user != ''">Bienvenu {{user | uppercase}}</h2>
+
+  <input [(ngModel)]="user" type="text" required class="col-md-12">
+
   <div *ngFor="let tweet of tweets" class="col-sm-12 mb-5">
     <div class="card">
       <div class="card-body">
@@ -8,8 +15,9 @@
         <a class="ml-3" href="#">
           <i class="fas fa-retweet"></i>
         </a>
-        <a class="ml-3" href="#">
-          <i class="far fa-heart"></i>
+        <a (click)="addLike(tweet.id)">
+          <i *ngIf="tweet.liked == true" class="like fas fa-heart ml-3"></i>
+          <i *ngIf="tweet.liked == false" class="like far fa-heart ml-3"></i> {{tweet.likes.length}}
         </a>
       </div>
     </div>
@@ -17,10 +25,10 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-      <div class="form-group">
-          <textarea #text class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea>
-          <br>
-          <button type="submit" style="float: right;" class="btn btn-danger" (click)="addTweet(text.value)">Tweeter</button>
-        </div>
+    <div class="form-group">
+      <textarea #msg class="md-textarea form-control" id="form103" rows="2" [disabled]="user === ''"></textarea>
+      <br>
+      <button type="submit" style="float: right;" class="btn btn-danger" [disabled]="user === ''" (click)="addTweet(msg.value)">Tweeter</button>
+    </div>
   </div>
 </div>
