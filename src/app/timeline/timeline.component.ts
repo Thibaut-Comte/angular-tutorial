@@ -33,7 +33,7 @@ export class TimelineComponent implements OnInit {
   ngOnInit() {
   }
 
-  user = "";
+  user: string;
 
   addTweet(text: any) {
 
