@@ -1,13 +1,26 @@
 <div class="row">
-    <div *ngFor="let tweet of tweets" class="col-sm-12 mb-5">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{ tweet.user }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ tweet.created_at | date:'medium'}}</h6>
-          <p class="card-text">{{ tweet.text }}</p>
-          <a class="ml-3" href="#"><i class="fas fa-retweet"></i></a>
-          <a class="ml-3" href="#"><i class="far fa-heart"></i></a>  
-        </div>
+  <div *ngFor="let tweet of tweets" class="col-sm-12 mb-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ tweet.user }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ tweet.created_at | timeAgo}}</h6>
+        <p class="card-text">{{ tweet.text }}</p>
+        <a class="ml-3" href="#">
+          <i class="fas fa-retweet"></i>
+        </a>
+        <a class="ml-3" href="#">
+          <i class="far fa-heart"></i>
+        </a>
       </div>
     </div>
   </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <div class="form-group">
+          <textarea #text class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea>
+          <br>
+          <button type="submit" style="float: right;" class="btn btn-danger" (click)="addTweet(text.value)">Tweeter</button>
+        </div>
+  </div>
+</div>
