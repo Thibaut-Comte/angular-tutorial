@@ -3,6 +3,7 @@ import { Tweet } from '../tweet';
 import {UserInputComponent} from '../user-input/user-input.component';
 import { User } from '../user';
 import { TweetsService } from '../tweets-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-timeline',
@@ -16,7 +17,10 @@ export class TimelineComponent implements OnInit {
   user: User;
   tweets: Tweet[];
 
-  constructor(private tweetsService: TweetsService) { }
+  constructor(
+    private tweetsService: TweetsService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.getTweets();
@@ -54,6 +58,10 @@ export class TimelineComponent implements OnInit {
 
   getTweets(): void {
     this.tweets = this.tweetsService.getTweets();
+  }
+
+  goToDetails(tweetId: number) {
+    this.router.navigateByUrl('/detail/'+tweetId);
   }
 
 }

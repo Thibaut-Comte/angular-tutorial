@@ -8,13 +8,17 @@ import { TimelineComponent } from './timeline/timeline.component';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import {FormsModule} from '@angular/forms';
 import { UserInputComponent } from './user-input/user-input.component';
+import { TweetDetailComponent } from './tweet-detail/tweet-detail.component';
+import { TweetComponent } from './tweet/tweet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimelineComponent,
     TimeAgoPipe,
-    UserInputComponent
+    UserInputComponent,
+    TweetDetailComponent,
+    TweetComponent
   ],
   imports: [
     BrowserModule,

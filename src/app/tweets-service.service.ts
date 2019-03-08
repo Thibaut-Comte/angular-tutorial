@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { User } from 'src/app/user';
 import { Tweet } from 'src/app/tweet';
 
@@ -6,7 +6,7 @@ import { Tweet } from 'src/app/tweet';
   providedIn: 'root'
 })
 export class TweetsService {
-
+  
   user1: User = { name: 'James'};
   user2: User = { name: 'Bob'};
 
@@ -34,5 +34,11 @@ export class TweetsService {
 
   getTweets() {
     return this.tweets
+  }
+
+  getTweetById(id: number): Tweet {
+    return this.tweets.find(function(tweet) {
+      return id == tweet.id
+    });
   }
 }

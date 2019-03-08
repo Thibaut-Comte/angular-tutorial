@@ -1,30 +1,17 @@
-<div class="row">
-
-   <app-user-input [user]=user></app-user-input>
-
-  <div *ngFor="let tweet of tweets" class="col-sm-12 mt-5">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{ tweet.user.name }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ tweet.created_at | timeAgo}}</h6>
-        <p class="card-text">{{ tweet.text }}</p>
-        <a class="ml-3" href="#">
-          <i class="fas fa-retweet"></i>
-        </a>
-        <a (click)="addLike(tweet.id)">
-          <i *ngIf="tweet.liked == true" class="like fas fa-heart ml-3"></i>
-          <i *ngIf="tweet.liked == false" class="like far fa-heart ml-3"></i> {{tweet.likes.length}}
-        </a>
+<div class="container">
+    <div class="row">
+        <app-user-input [user]=user></app-user-input>
+      
+        <div *ngFor="let tweet of tweets" class="col-sm-12 mt-5" (click)="goToDetails(tweet.id)">
+          <app-tweet [tweet]="tweet" [user]="user"></app-tweet>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="form-group">
-      <textarea #msg class="md-textarea form-control mt-5" id="form103" rows="2" [disabled]="!user.name"></textarea>
-      <br>
-      <button type="submit" style="float: right;" class="btn btn-danger" [disabled]="!user.name" (click)="addTweet(msg.value)">Tweeter</button>
-    </div>
-  </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group tweet-content">
+            <textarea #tweetContent class="md-textarea form-control mt-5" id="form103" rows="2" [disabled]="!user.name"></textarea>
+          </div>
+          <button type="submit" style="float: right;" class="btn btn-danger" [disabled]="!user.name" (click)="addTweet(tweetContent.value)">Tweeter</button>
+        </div>
+      </div>
 </div>
