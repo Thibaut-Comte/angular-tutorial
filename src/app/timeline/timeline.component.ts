@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Tweet } from '../tweet';
+import {UserInputComponent} from '../user-input/user-input.component';
+import { User } from '../user';
+import { TweetsService } from '../tweets-service.service';
 
 @Component({
   selector: 'app-timeline',
@@ -8,44 +11,28 @@ import { Tweet } from '../tweet';
 })
 export class TimelineComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(UserInputComponent)
 
-  tweets: Tweet[] = [
-    {
-      created_at: 'Wed Apr 05 12:30:12 +0000 2017',
-      id: 1,
-      text: 'Je mets les pieds où je veux, Little John… et c\'est souvent dans la gueule.',
-      user: 'James Braddock',
-      likes: [],
-      liked: false
-    },
-    {
-      created_at: 'Thu Apr 06 15:24:15 +0000 2017',
-      id: 2,
-      text: 'Qui a deux pouces et qui s\'en fout ? Bob Kelso !',
-      user: 'Bob kelso',
-      likes: [],    
-      liked: false
-        
-    },
-  ];
+  user: User;
+  tweets: Tweet[];
+
+  constructor(private tweetsService: TweetsService) { }
 
   ngOnInit() {
+    this.getTweets();
   }
-
-  user: string;
 
   addTweet(text: any) {
 
     let tweet: Tweet = {
 
       id: this.tweets.length+1,
-      created_at: new Date().toString(),      
-      user: this.user,
+      created_at: new Date().toString(),
       text: text,
       likes: [],
-      liked: false      
-
+      liked: false,
+      user: this.user
+         
     };
 
     this.tweets.push(tweet);
@@ -65,8 +52,8 @@ export class TimelineComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
-
+  getTweets(): void {
+    this.tweets = this.tweetsService.getTweets();
   }
 
 }

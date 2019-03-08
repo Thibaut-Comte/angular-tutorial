@@ -7,12 +7,14 @@ import { TimelineComponent } from './timeline/timeline.component';
 
 import {TimeAgoPipe} from 'time-ago-pipe';
 import {FormsModule} from '@angular/forms';
+import { UserInputComponent } from './user-input/user-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimelineComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    UserInputComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,11 @@
 <div class="row">
 
-    <h2 *ngIf="!user">Bonjour veuillez saisir votre nom</h2>
-    <h2 *ngIf="user">Bienvenu {{user | uppercase}}</h2>
-
-  <input [(ngModel)]="user" type="text" required class="col-md-12">
+   <app-user-input [user]=user></app-user-input>
 
   <div *ngFor="let tweet of tweets" class="col-sm-12 mt-5">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">{{ tweet.user }}</h5>
+        <h5 class="card-title">{{ tweet.user.name }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{ tweet.created_at | timeAgo}}</h6>
         <p class="card-text">{{ tweet.text }}</p>
         <a class="ml-3" href="#">
@@ -25,9 +22,9 @@
 <div class="row">
   <div class="col-md-12">
     <div class="form-group">
-      <textarea #msg class="md-textarea form-control mt-5" id="form103" rows="2" [disabled]="!user"></textarea>
+      <textarea #msg class="md-textarea form-control mt-5" id="form103" rows="2" [disabled]="!user.name"></textarea>
       <br>
-      <button type="submit" style="float: right;" class="btn btn-danger" [disabled]="!user" (click)="addTweet(msg.value)">Tweeter</button>
+      <button type="submit" style="float: right;" class="btn btn-danger" [disabled]="!user.name" (click)="addTweet(msg.value)">Tweeter</button>
     </div>
   </div>
 </div>
