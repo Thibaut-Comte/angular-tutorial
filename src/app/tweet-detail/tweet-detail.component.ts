@@ -3,6 +3,7 @@ import { TweetsService } from '../tweets-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { Tweet } from '../tweet';
 import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-tweet-detail',
@@ -17,11 +18,15 @@ export class TweetDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private tweetService: TweetsService
+    private tweetService: TweetsService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
     this.getTweet();
+    this.userService.user.subscribe(user => {
+      this.user = user;
+    })
   }
 
   getTweet() {

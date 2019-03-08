@@ -13,8 +13,6 @@ export class CreateTweetComponent implements OnInit {
 
   user: User;
 
-  
-
   constructor(
     private tweetService: TweetsService,
     private userService: UserService,

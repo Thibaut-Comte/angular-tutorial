@@ -4,6 +4,7 @@ import {UserInputComponent} from '../user-input/user-input.component';
 import { User } from '../user';
 import { TweetsService } from '../tweets-service.service';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-timeline',
@@ -19,11 +20,15 @@ export class TimelineComponent implements OnInit {
 
   constructor(
     private tweetsService: TweetsService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
-    this.getTweets();
+    this.userService.user.subscribe(user => {
+      this.user = user
+      this.getTweets();
+    })
   }
 
   addLike(id: number) {

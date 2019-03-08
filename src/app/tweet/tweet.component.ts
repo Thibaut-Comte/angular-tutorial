@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Tweet } from '../tweet';
 import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-tweet',
@@ -20,10 +21,15 @@ export class TweetComponent implements OnInit {
 
   }
 
-  constructor() {
+  constructor(
+    private userService: UserService
+  ) {
    }
 
   ngOnInit() {
+    this.userService.user.subscribe(user => {
+      this.user = user
+    })
   }
 
 }
