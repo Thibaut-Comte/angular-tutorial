@@ -1,17 +1,12 @@
 <div class="container">
-    <div class="row">
-        <app-user-input [user]=user></app-user-input>
-      
-        <div *ngFor="let tweet of tweets" class="col-sm-12 mt-5" (click)="goToDetails(tweet.id)">
-          <app-tweet [tweet]="tweet" [user]="user"></app-tweet>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group tweet-content">
-            <textarea #tweetContent class="md-textarea form-control mt-5" id="form103" rows="2" [disabled]="!user.name"></textarea>
-          </div>
-          <button type="submit" style="float: right;" class="btn btn-danger" [disabled]="!user.name" (click)="addTweet(tweetContent.value)">Tweeter</button>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <app-user-input [user]=user></app-user-input>
+    </div>
+    <div class="col-md-12 mt-5"></div>
+    <a routerLink="/create-tweet" class="btn btn-danger ml-3">Tweet</a>
+    <div *ngFor="let tweet of tweets" class="col-sm-12 mt-5" (click)="goToDetails(tweet.id)">
+      <app-tweet [tweet]="tweet" [user]="user"></app-tweet>
+    </div>
+  </div>
 </div>

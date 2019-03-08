@@ -6,7 +6,8 @@ import { Tweet } from 'src/app/tweet';
   providedIn: 'root'
 })
 export class TweetsService {
-  
+
+  user: User
   user1: User = { name: 'James'};
   user2: User = { name: 'Bob'};
 
@@ -41,4 +42,22 @@ export class TweetsService {
       return id == tweet.id
     });
   }
+
+  addTweet(text: any, user: User) {
+
+    let tweet: Tweet = {
+
+      id: this.tweets.length+1,
+      created_at: new Date().toString(),
+      text: text,
+      likes: [],
+      liked: false,
+      user: user
+         
+    };
+
+    this.tweets.push(tweet);
+
+  }
+
 }

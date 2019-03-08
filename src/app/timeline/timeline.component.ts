@@ -26,23 +26,6 @@ export class TimelineComponent implements OnInit {
     this.getTweets();
   }
 
-  addTweet(text: any) {
-
-    let tweet: Tweet = {
-
-      id: this.tweets.length+1,
-      created_at: new Date().toString(),
-      text: text,
-      likes: [],
-      liked: false,
-      user: this.user
-         
-    };
-
-    this.tweets.push(tweet);
-
-  }
-
   addLike(id: number) {
 
     let index = id;

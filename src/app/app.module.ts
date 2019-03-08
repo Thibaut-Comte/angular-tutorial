@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import { UserInputComponent } from './user-input/user-input.component';
 import { TweetDetailComponent } from './tweet-detail/tweet-detail.component';
 import { TweetComponent } from './tweet/tweet.component';
+import { CreateTweetComponent } from './create-tweet/create-tweet.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TweetComponent } from './tweet/tweet.component';
     TimeAgoPipe,
     UserInputComponent,
     TweetDetailComponent,
-    TweetComponent
+    TweetComponent,
+    CreateTweetComponent
   ],
   imports: [
     BrowserModule,

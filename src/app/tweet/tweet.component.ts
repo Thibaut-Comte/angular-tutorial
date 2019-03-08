@@ -20,7 +20,8 @@ export class TweetComponent implements OnInit {
 
   }
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
   }

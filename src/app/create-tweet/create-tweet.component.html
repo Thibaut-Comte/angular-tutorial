@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="form-group tweet-content">
+            <!-- <textarea #tweetContent class="md-textarea form-control mt-5" id="form103" rows="2" [disabled]="!user.name"></textarea> -->
+            <textarea #tweetContent class="md-textarea form-control mt-5" id="form103" rows="2"></textarea>
+          </div>
+          <!-- <button type="submit" style="float: right;" class="btn btn-danger" [disabled]="!user.name" (click)="addTweet(tweetContent.value, user)">Tweeter</button> -->
+          <button type="submit" style="float: right;" class="btn btn-danger" (click)="addTweet(tweetContent.value)">Tweeter</button>
+        </div>
+      </div>
+      <p>{{user}}</p>
+      <div class="footer">
+          <i class="fas fa-arrow-circle-left"></i>
+          <a routerLink="/timeline">Retour</a>
+        </div>
+</div>
